@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Tour</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- header -->
+    <header style="border-bottom: 1px solid black">
+        <nav class="container">
+            <div class="navbar">
+                <img class="logo" src="Gotour.jpg" alt="">
+            <div class="menu">
+                <button data-section="section-1">Home</button>
+                <button data-section="section-2">Our Packages</button>
+                <button data-section="section-3">Message Us</button>
+            </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- main -->
+    <main>
+        <section id="section-1" style="justify-content: center;">
+                <div class="hero-title">
+                    <h1>Discover Your Adventure</h1>
+                    <h3>Hello <span id="nama"></span>, Welcome to Gotour!</h3>
+                    JavaScript
+                    <script>
+                        var name = prompt("Masukkan nama anda");
+                        document.getElementById("nama").innerText = name;
+                    </script>
+                </div>
+        </section>
+        <section id="about-contact">
+            <div class="container1">
+                <div class="about-contact">
+                    <div class="contact">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Contact us</h4>
+                                <p style="margin-bottom: 15px;line-height: 1.5;">Sales akan menghubungi akan menghubungi Anda 1x24jam.</p>
+                            <form name="message-form" onsubmit="return validateForm()">
+                                Nama: <input placeholder="Nama" type="text" name ="full-name" required />
+                                <br />
+
+                                Tanggal Lahir:
+                                <input type="date" name="birth-date" />
+                                <br />
+
+                                  <label for="male">Laki-laki</label>
+                                  <input type="radio" id="male" name="gender" value="male" />
+                                  <label for="female">Perempuan</label>
+                                  <input type="radio" id="female" name="gender" value="female" />
+                                <br />
+
+                                Pesan:
+                                <textarea placeholder="Pesan" name="messages"></textarea>
+                                <br />
+
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <script>
+                                function validateForm() {
+                                    var name = document.forms["message-form"]["full-name"].value;
+                                    var date = document.forms["message-form"]["birth-date"].value;
+                                    var gender = document.forms["message-form"]["gender"].value;
+                                    var messages = document.forms["message-form"]["messages"].value;
+                                    document.getElementById("sender-full-name").innerText = name;
+                                    console.log({ name, date, gender, messages });
+                                    return false;
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="about">
+                    <img class="img-slideshow" src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055__480.jpg" alt="">
+                    <img class="img-slideshow" src="https://cdn.pixabay.com/photo/2022/03/18/13/13/sunset-7076676_1280.jpg" alt="">
+                    <img class="img-slideshow" src="https://media.istockphoto.com/id/1021380426/id/foto/matahari-terbenam-di-pegunungan-serra-da-beleza-antara-rio-de-janeiro-dan-minas-gerais.jpg?s=612x612&w=0&k=20&c=s26Fe4HKvVSo0SyyxSynM-VcbyK1SmY4OBQgydB8aig=" alt="">
+                    <button onclick="plusDivs(-1)" style="display: none;">Previous</button>
+                    <button onclick="plusDivs(1)" style="display: none;">Next</button>
+                    <div class="about-content"></div>
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+                
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+                
+                        function showDivs(n) {
+                            var i;
+                            var imgList = document.getElementsByClassName("img-slideshow");
+                            if (n > imgList.length) slideIndex = 1;
+                            if (n < 1) slideIndex = imgList.length;
+                
+                            for (i = 0; i < imgList.length; i++) {
+                                imgList[i].style.display = "none";
+                            }
+                            imgList[slideIndex-1].style.display = "block";
+                        }
+
+                        setInterval(() => {
+                            plusDivs(1);
+                        }, 3000);
+                    </script>
+                </div>
+                
+                        <div class="content-caption">
+                            <p>liburan nyaman dan terpercaya</p>
+                        </div>
+                        <div class="content-person">
+                            <img src="https://wallpaperaccess.com/full/6999296.jpg" alt="">
+                            <div class="person-info">
+                                <h6>John Doe</h6>
+                                <p>CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <hr class="border" />
+                <div class="about-information">
+                    <!-- <h6 class="information-title">use this space lalala</h6> -->
+                    <ul class="information-list">
+                        <li>
+                            <div class="list-number">1</div>
+                            <p class="list-paragraf">Fleksible, Dengan menggunakan jasa trip, Anda dapat dengan mudah mengatur dan merencanakan perjalanan Anda tanpa perlu repot mengatur semua hal sendiri. Anda juga dapat memilih berbagai paket perjalanan yang telah disiapkan sesuai dengan kebutuhan dan preferensi Anda.</p>
+                        </li>
+                        <li>
+                            <div class="list-number">2</div>
+                            <p class="list-paragraf">Professional, Agen perjalanan atau penyedia layanan perjalanan yang berpengalaman dapat memberikan rekomendasi dan informasi tentang tempat-tempat wisata yang tidak terdapat pada panduan perjalanan. Mereka juga dapat membantu dalam mengatur kunjungan ke tempat-tempat wisata yang kurang dikenal dan menarik di destinasi Anda.</p>
+                        </li>
+                        <li>
+                            <div class="list-number">3</div>
+                            <p class="list-paragraf">Nyaman, Ketika Anda menggunakan jasa trip, Anda akan mendapatkan perlindungan dan jaminan yang lebih baik terhadap berbagai risiko yang mungkin terjadi selama perjalanan, seperti pembatalan atau perubahan jadwal, kehilangan bagasi, dan sebagainya. Agen perjalanan atau penyedia layanan perjalanan juga dapat membantu Anda dalam memilih jenis asuransi perjalanan yang tepat untuk memastikan Anda terlindungi secara finansial selama perjalanan.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <section id="section-2" style="justify-content: center;">
+        <div class="hero-title1">
+            <h1>Our Package</h1>
+        </div>
+    </section>
+    <hr class="border" />
+    <div class="article">
+    <section>
+        <article>
+          <h2>Bali</h2>
+          <p>Bali adalah destinasi pariwisata populer di Indonesia yang menawarkan pantai yang indah, air terjun, kuil Hindu, dan kehidupan malam yang ramai. Anda dapat mengunjungi pantai-pantai seperti Kuta, Seminyak, atau Jimbaran, atau menjelajahi tempat-tempat wisata seperti Pura Besakih, Tirta Empul, atau Gunung Agung.</p>
+        </article>
+        <article>
+          <h2>Lombok</h2>
+          <p>Lombok adalah pulau yang terletak di sebelah timur Bali. Pulau ini dikenal dengan keindahan pantainya, seperti pantai Kuta Lombok dan Pantai Senggigi. Anda juga dapat melakukan aktivitas snorkeling atau menyelam di Gili Trawangan atau Gili Meno, dua pulau kecil yang terletak di lepas pantai Lombok.</p>
+        </article>
+        <article>
+          <h2>Danau Toba</h2>
+          <p>Danau Toba adalah danau terbesar di Indonesia dan terletak di Sumatra Utara. Danau ini dikelilingi oleh pegunungan dan merupakan tempat yang tenang untuk bersantai. Anda dapat mengunjungi pulau Samosir yang terletak di tengah Danau Toba, dan mengeksplorasi kebudayaan Batak yang khas di sana.</p>
+        </article>
+        <article>
+          <h2>Tanjung Puting</h2>
+          <p>Tanjung Puting: Tanjung Puting adalah taman nasional yang terletak di Kalimantan Tengah. Taman nasional ini merupakan habitat bagi orangutan liar dan spesies satwa lainnya yang dilindungi. Anda dapat melakukan perjalanan ke dalam hutan dan melihat orangutan liar di dekatnya, serta menikmati keindahan alam Kalimantan Tengah.</p>
+      </article>
+      <article>
+        <h2>Raja Ampat</h2>
+        <p>Raja Ampat adalah gugusan kepulauan yang terletak di Papua Barat. Pulau-pulau ini menawarkan keindahan alam yang menakjubkan, termasuk terumbu karang yang indah dan keanekaragaman hayati laut yang kaya. Anda dapat melakukan aktivitas menyelam atau snorkeling di sana dan menikmati keindahan alam bawah laut.</p>
+      </article>
+      <article>
+        <h2>Yogyakarta</h2>
+        <p>Yogyakarta adalah kota budaya di Jawa Tengah. Di sana, Anda dapat mengunjungi Candi Borobudur, salah satu situs warisan dunia UNESCO yang paling terkenal di Indonesia. Anda juga dapat menjelajahi Keraton Yogyakarta, sebuah istana kerajaan yang masih dihuni oleh keluarga kerajaan Yogyakarta.</p>
+      </article>
+    </section>
+    </div>
+
+    <section id="section-3" style="justify-content: center;">
+        <div class="hero-title1">
+            <h1>Buy now or Regret it later!</h1>
+        </div>
+    </section>
+    <p style="text-align: center;">
+        Yuk, segera dapatkan paket trip impianmu sekarang juga dan nikmati pengalaman liburan yang tak terlupakan!
+    </p>
+    <hr class="border" />
+    <div class="cta">
+    <a href="#" class="cta-button">Beli Sekarang</a>
+    </div>
+
+
+    <!-- <footer>
+      <p>&copy; 2023 Titan Ramadhan. Hak cipta dilindungi Tuhan YME.</p>
+    </footer> -->
+</body>
+</html>
